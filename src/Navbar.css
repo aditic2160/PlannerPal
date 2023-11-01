@@ -1,0 +1,38 @@
+/* Navbar.css */
+
+nav {
+    background-color: #7f5a83; /* Pastel purple */
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    position: relative;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+    z-index: 1; /* Ensure Navbar is above the content */
+  }
+  
+  nav ul {
+    list-style: none;
+    display: flex;
+    padding: 0;
+    margin: 0;
+  }
+  
+  nav li {
+    margin: 0 20px;
+  }
+  
+  button {
+    background-color: #f1c3d3; /* Pastel pink */
+    color: #333; /* Dark gray text color */
+    border: none;
+    padding: 10px 20px; /* Increase padding */
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s; /* Add transition effect */
+  }
+  
+  button:hover {
+    background-color: #ff85a2; /* Lighter pastel pink on hover */
+    color: #666; /* Medium gray on hover */
+  }
+  

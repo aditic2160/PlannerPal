@@ -1,0 +1,146 @@
+/* App.css */
+
+/* Global Styles */
+body {
+  background-color: #f2e1ea; /* Light pink background */
+  font-family: 'Roboto', sans-serif; /* Change the font to 'Roboto' or your preferred font */
+  margin: 0;
+  padding: 0;
+  color: #333; /* Dark gray text color */
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  font-family: 'Courier';
+}
+
+input{
+  font-family:'Courier';
+  padding: 10px;
+  margin-right: 10px;
+  font-family: Courier;
+  font-size: 16px;
+  border: 2px solid #b79ec6; /* Purple border */
+  border-radius: 5px;
+}
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* App Container Styles */
+.app-container {
+  transition: transform 0.3s ease-in-out;
+  transform-origin: left;
+}
+
+.app-container.slide-enter {
+  transform: translateX(100%);
+}
+
+.app-container.slide-enter-active {
+  transform: translateX(0);
+}
+
+.app-container.slide-exit {
+  transform: translateX(-100%);
+}
+
+.app-container.slide-exit-active {
+  transform: translateX(0);
+}
+
+/* Content Box Styles */
+.content-box {
+  background-color: #f8f8f8; /* Light gray background */
+  border: 1px solid #d6d6d6; /* Light gray border */
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+/* Main Content Styles */
+.main-content {
+  background-color: #f8f8f8; /* Light gray background */
+  border: 1px solid #d6d6d6; /* Light gray border */
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  text-align: center;
+}
+
+/* Logo Styles */
+.logo {
+  width: 100%;
+  max-width: 300px;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Navbar Styles */
+nav {
+  background-color: #d6d6d6; /* Light gray background */
+  padding: 10px;
+  border-bottom: 2px solid #b79ec6; /* Purple accent border */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Navigation Links Styles */
+nav ul {
+  list-style: none;
+  display: flex;
+  padding: 0;
+  margin: 0;
+}
+
+nav li {
+  margin: 0 20px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #b79ec6; /* Purple link color */
+}
+
+nav a:hover {
+  color: #d598dd; /* Darker purple on hover */
+}
+
+/* Header Styles */
+h2 {
+  font-size: 28px;
+  margin: 20px 0;
+  color: #333; /* Dark gray header text */
+}
+
+/* Form Elements Styles */
+input[type="text"],
+textarea,
+button {
+  padding: 10px;
+  margin-right: 10px;
+  font-family: Courier;
+  font-size: 16px;
+  border: 2px solid #b79ec6; /* Purple border */
+  border-radius: 5px;
+}
+
+input[type="text"],
+textarea {
+  background-color: #f8f8f8; /* Light gray background */
+  color: #333; /* Dark gray text color */
+}
+
+button {
+  background-color: #b79ec6; /* Purple button background */
+  color: #fff; /* White text color */
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #d598dd; /* Darker purple on hover */
+}
