@@ -1,6 +1,6 @@
 # PlannerPal
 
-PlannerPal is a **purely frontend React application** designed to help students stay organized, manage tasks, take notes, collaborate, and track their schedules—all in one centralized platform. The app is lightweight, easy to use, and focuses on improving productivity without adding unnecessary complexity.
+PlannerPal is a **purely frontend React application** designed to help students stay organized, manage tasks, take notes, collaborate, and track their schedules in one centralized platform. The app is lightweight, easy to use, and focuses on improving productivity without adding unnecessary complexity.
 
 ## Features
 
@@ -17,9 +17,7 @@ PlannerPal offers multiple tools for academic organization:
 ## Technologies Used
 
 - **React** – JavaScript library for building the frontend user interface.  
-- **React Hooks (`useState`, `useEffect`)** – For managing state and side effects within components.  
 - **CSS** – Styling for global and component-specific layouts.  
-- **JSX** – JavaScript syntax extension used for templating UI components.  
 
 > This app is purely frontend—there is **no backend or database**. All data exists only in the current browser session.
 
