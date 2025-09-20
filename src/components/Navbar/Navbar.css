@@ -1,4 +1,3 @@
-/* Navbar.css - sidebar + responsive top nav */
 
 .sidebar {
   background: linear-gradient(180deg, rgba(127,90,131,0.95), rgba(164,93,140,0.95));
@@ -57,3 +56,4 @@
   .nav-btn { padding:8px 10px; font-size:13px; }
   .sidebar-footer { display:none; }
 }
+
