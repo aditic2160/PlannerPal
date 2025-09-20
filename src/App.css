@@ -1,146 +1,215 @@
-/* App.css */
+/* App.css - Full professional style, responsive, transitions */
 
-/* Global Styles */
+/* -- Theme variables (easy to switch / dark mode later) -- */
+:root{
+  --bg-1: #f5f7fb;
+  --bg-2: #fff;
+  --accent-1: #7f5a83; /* deep pastel purple */
+  --accent-2: #b79ec6; /* lighter purple */
+  --muted: #6b6b6b;
+  --glass: rgba(255,255,255,0.7);
+  --radius: 14px;
+  --shadow-1: 0 8px 20px rgba(16,16,30,0.08);
+}
+
+/* Reset & page fill */
+* { box-sizing: border-box; }
+html, body, #root { height: 100%; }
 body {
-  background-color: #f2e1ea; /* Light pink background */
-  font-family: 'Roboto', sans-serif; /* Change the font to 'Roboto' or your preferred font */
   margin: 0;
-  padding: 0;
-  color: #333; /* Dark gray text color */
+  font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: linear-gradient(180deg, #f8fbff 0%, #f0eef6 100%);
+  color: #222;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* App shell fills viewport */
+.app-shell {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 24px;
+  align-items: stretch;
+}
+
+/* Main area (header + content + footer) */
+.main-area {
   display: flex;
-  justify-content: center; /* Center horizontally */
-  align-items: center; /* Center vertically */
-  font-family: 'Courier';
+  flex-direction: column;
+  padding: 28px 36px;
+  min-height: 100vh;
 }
 
-input{
-  font-family:'Courier';
-  padding: 10px;
-  margin-right: 10px;
-  font-family: Courier;
-  font-size: 16px;
-  border: 2px solid #b79ec6; /* Purple border */
-  border-radius: 5px;
-}
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
-}
-
-/* App Container Styles */
-.app-container {
-  transition: transform 0.3s ease-in-out;
-  transform-origin: left;
-}
-
-.app-container.slide-enter {
-  transform: translateX(100%);
-}
-
-.app-container.slide-enter-active {
-  transform: translateX(0);
-}
-
-.app-container.slide-exit {
-  transform: translateX(-100%);
-}
-
-.app-container.slide-exit-active {
-  transform: translateX(0);
-}
-
-/* Content Box Styles */
-.content-box {
-  background-color: #f8f8f8; /* Light gray background */
-  border: 1px solid #d6d6d6; /* Light gray border */
-  border-radius: 10px;
-  padding: 20px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-}
-
-/* Main Content Styles */
-.main-content {
-  background-color: #f8f8f8; /* Light gray background */
-  border: 1px solid #d6d6d6; /* Light gray border */
-  border-radius: 10px;
-  padding: 20px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-  text-align: center;
-}
-
-/* Logo Styles */
-.logo {
-  width: 100%;
-  max-width: 300px;
-  display: block;
-  margin: 0 auto;
-}
-
-/* Navbar Styles */
-nav {
-  background-color: #d6d6d6; /* Light gray background */
-  padding: 10px;
-  border-bottom: 2px solid #b79ec6; /* Purple accent border */
+/* Header */
+.main-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 18px;
 }
 
-/* Navigation Links Styles */
-nav ul {
-  list-style: none;
-  display: flex;
-  padding: 0;
+.product-title {
   margin: 0;
+  font-size: 20px;
+  letter-spacing: 0.2px;
+  color: var(--accent-1);
+}
+.product-sub {
+  margin: 4px 0 0 0;
+  color: var(--muted);
+  font-size: 13px;
 }
 
-nav li {
-  margin: 0 20px;
+/* Date/time */
+.date-time {
+  background: linear-gradient(180deg, rgba(255,255,255,0.6), rgba(255,255,255,0.5));
+  padding: 8px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(127,90,131,0.08);
+  font-size: 13px;
+  box-shadow: var(--shadow-1);
 }
 
-nav a {
-  text-decoration: none;
-  color: #b79ec6; /* Purple link color */
+/* Content area - page container */
+.content-area{
+  flex: 1;
+  overflow: auto;
+  padding: 8px 0;
 }
 
-nav a:hover {
-  color: #d598dd; /* Darker purple on hover */
+/* Page wrapper: animate when data-key changes */
+.page {
+  min-height: calc(100vh - 180px);
+  transition: transform 360ms cubic-bezier(.2,.9,.3,1), opacity 360ms;
+  transform-origin: top left;
+  opacity: 1;
 }
 
-/* Header Styles */
-h2 {
-  font-size: 28px;
-  margin: 20px 0;
-  color: #333; /* Dark gray header text */
+/* Use attribute selector that changes when activeKey toggles (simple hack)
+   We animate on mount by briefly translating and fading in */
+.page[data-key] {
+  animation: pageIn 420ms ease forwards;
+}
+@keyframes pageIn {
+  from { transform: translateY(18px) scale(0.995); opacity: 0; }
+  to   { transform: translateY(0) scale(1); opacity: 1; }
 }
 
-/* Form Elements Styles */
-input[type="text"],
-textarea,
+/* Content card (shared) */
+.content-card {
+  background: var(--glass);
+  border-radius: var(--radius);
+  padding: 22px;
+  border: 1px solid rgba(127,90,131,0.06);
+  box-shadow: var(--shadow-1);
+}
+
+/* Home grid layout */
+.home-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 18px;
+}
+
+/* Card variants */
+.content-card.large { min-height: 240px; }
+.content-card.small { min-height: 160px; display:flex; flex-direction:column; justify-content:space-between; }
+
+/* Feature grid inside the large card */
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-top: 14px;
+}
+.feature { background: rgba(255,255,255,0.6); padding: 12px; border-radius: 10px; border: 1px solid rgba(127,90,131,0.04); }
+
+/* Quick actions */
+.quick-actions { display:flex; flex-direction:column; gap:10px; }
+.quick-actions button { text-align: left; }
+
+/* Buttons & inputs - consistent look */
+input[type="text"], input[type="time"],
+textarea, select {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(127,90,131,0.12);
+  background: #fff;
+  font-size: 14px;
+  outline: none;
+  transition: box-shadow 180ms, transform 120ms;
+}
+
+input:focus, textarea:focus, select:focus {
+  box-shadow: 0 6px 18px rgba(127,90,131,0.12);
+  transform: translateY(-1px);
+}
+
+textarea { min-height: 90px; resize: vertical; }
+
+/* Primary button */
 button {
-  padding: 10px;
-  margin-right: 10px;
-  font-family: Courier;
-  font-size: 16px;
-  border: 2px solid #b79ec6; /* Purple border */
-  border-radius: 5px;
-}
-
-input[type="text"],
-textarea {
-  background-color: #f8f8f8; /* Light gray background */
-  color: #333; /* Dark gray text color */
-}
-
-button {
-  background-color: #b79ec6; /* Purple button background */
-  color: #fff; /* White text color */
+  background: linear-gradient(135deg, var(--accent-2), #d598dd);
+  color: white;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 10px;
   cursor: pointer;
-  font-weight: bold;
-  transition: background-color 0.3s;
+  font-weight: 600;
+  transition: transform 140ms ease, box-shadow 140ms ease;
+}
+button:hover { transform: translateY(-3px); box-shadow: 0 8px 22px rgba(127,90,131,0.12); }
+button.secondary { background: transparent; color: var(--accent-1); border: 1px solid rgba(127,90,131,0.12); }
+
+/* Lists */
+ul { margin: 0; padding: 0; }
+
+/* Small utilities */
+.row { display:flex; gap:12px; align-items:center; }
+.col { display:flex; flex-direction:column; gap:8px; }
+
+/* Footer */
+.app-footer {
+  margin-top: 18px;
+  display:flex;
+  justify-content:space-between;
+  color: var(--muted);
+  font-size: 13px;
 }
 
-button:hover {
-  background-color: #d598dd; /* Darker purple on hover */
+/* Responsiveness */
+@media (max-width: 900px) {
+  .app-shell { grid-template-columns: 1fr; }
+  .sidebar { position: sticky; top: 0; z-index: 150; width: 100%; }
+  .home-grid { grid-template-columns: 1fr; }
+  .main-area { padding: 18px; }
+}
+
+/* Minor helpers used by inner components (notes, todos, schedule) */
+.card-row {
+  display:flex; justify-content:space-between; align-items:center; gap:8px; padding:12px 0;
+  border-bottom: 1px solid rgba(127,90,131,0.04);
+}
+.muted { color: var(--muted); font-size:13px; }
+.small { font-size:13px; }
+
+/* Polished buttons for small actions */
+.action-btn {
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight:600;
+}
+.action-btn.warn { background: #ff8a65; color: #fff; }
+.action-btn.ghost { background: transparent; color: var(--accent-1); border: 1px solid rgba(127,90,131,0.06); }
+
+/* Extra spacing classes used by components */
+.mt-8 { margin-top: 8px; }
+.mb-12 { margin-bottom: 12px; }
+.quick-card {
+  max-width: 280px;
+  align-self: start;
 }
