@@ -1,6 +1,4 @@
-/* App.css - Full professional style, responsive, transitions */
 
-/* -- Theme variables (easy to switch / dark mode later) -- */
 :root{
   --bg-1: #f5f7fb;
   --bg-2: #fff;
@@ -86,8 +84,6 @@ body {
   opacity: 1;
 }
 
-/* Use attribute selector that changes when activeKey toggles (simple hack)
-   We animate on mount by briefly translating and fading in */
 .page[data-key] {
   animation: pageIn 420ms ease forwards;
 }
